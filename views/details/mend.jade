@@ -1,0 +1,28 @@
+each i, key in items
+	if key > 3
+	else
+		.logo
+				p.aul
+					a(href="/goods/#{i.gid}/#{smid}/#{suid}")
+						img(src="#{i.detailed_description}", alt=
+						"")
+				a(href="/goods/#{i.gid}/#{smid}/#{suid}")
+					p.lt #{i.name_commodity}
+				p
+					if i.goodsSellPrice !== null
+						i ￥#{i.goodsSellPrice}
+					else
+						if i.platform_price5
+							i ￥#{i.platform_price5}
+						else if i.platform_price4
+							i ￥#{i.platform_price4}
+						else if i.platform_price3
+							i ￥#{i.platform_price3}
+						else if i.platform_price2
+							i ￥#{i.platform_price2}
+						else if i.platform_price1
+							i ￥#{i.platform_price1}
+					a.lo(href="javascript:void(0);")
+						img(src='/img/index/tianjia.png')
+
+script(src= '/js/addorder.js', type= 'text/javascript')

@@ -1,0 +1,47 @@
+extends ../layout/layout
+
+block content
+	.rtitle
+		h1 注册
+		a(href="/registry") &lt;
+	.registryFinal
+		.title
+			h3 2、输入超市信息
+		form(action='/server/supermarketRegister', method='post',id="signupForm" )
+			p.fname
+				span *超市名称：
+				input(type='text', placeholder='请输入超市名称', name='user[supermarketName]',id="supermarketName")
+			p.fadd
+				span *超市地址：
+				input(type="hidden",name="user[province1]",value='')
+				select(id="province") 1
+				input(type="hidden",name="user[city1]",value='')
+				select(id="city") 2
+				input(type="hidden",name="user[county1]",value='')
+				select(id="county") 3
+				input(type="hidden",name="user[marketArea]",value='')
+				select(id="marketArea") 4
+			script(src= '/js/province.js', type= 'text/javascript')
+				
+			p.faddPos
+				input#moreAdd(placeholder='请输入详细地址', name='user[shippingAddress]')
+			p.fverity
+				span *收货人：
+				input(type='text', placeholder='请输入收货人姓名', name='user[consignee]',id="consignee")
+			p.ftel
+				span *收货人电话：
+				input(type='tel', placeholder='请输入联系方式', name='user[phone]',id="phone")
+			p.fnumber
+				span 业务员：
+				input(type="hidden", name="user[sid]", id="sid")
+				input(type='text', placeholder='请输入业务员姓名', name='salesman',value="",id="salesman")
+			p.errorS
+				span
+				input(type="text",value="",readOnly="true")
+			.submit
+				input(type="hidden",name="user[username]",value="#{user.username}")
+				input(type="hidden",name="user[code]",value="#{user.code}")
+				input(type="hidden",name="user[mobile]",value="#{user.mobile}")
+				input(type="hidden",name="user[loginPassword]",value="#{user.loginPassword}")
+				a(href="/registryFinal")
+					input.btn(id="over",type='submit', value='完成',onclick="return overr()")

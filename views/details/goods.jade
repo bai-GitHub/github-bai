@@ -1,0 +1,154 @@
+extends ../layout/goodsLayout
+
+block content
+	.rtitle
+		h1(data-smid='#{smid}') 商品详情
+		a.mt(href="#{url}")
+			i
+		a(href="/user/purchase")
+			span 
+	.poster
+		ul
+			if items.detailed_description
+				li
+					a(href="javascript:void(0);")
+						img(src="#{items.detailed_description}", alt="", width='414', height='220')
+			if items.detailed_description_vice1
+				li
+					a(href="javascript:void(0);")
+						img(src="#{items.detailed_description_vice1}", alt="", width='414', height='220')
+			if items.detailed_description_vice2
+				li
+					a(href="javascript:void(0);")
+						img(src="#{items.detailed_description_vice2}", alt="", width='414', height='220')
+			if items.detailed_description_vice3
+				li
+					a(href="javascript:void(0);")
+						img(src="#{items.detailed_description_vice3}", alt="", width='414', height='220')
+				
+			if items.detailed_description_vice4
+				li
+					a(href="javascript:void(0);")
+						img(src="#{items.detailed_description_vice4}", alt="", width='414', height='220')
+			if items.detailed_description_vice5
+				li
+					a(href="javascript:void(0);")
+						img(src="#{items.detailed_description_vice5}", alt="", width='414', height='220')
+		p
+	.txt #{items.name_commodity}
+	.price
+		if items.goodsSellPrice !== null
+			p.list
+				span(style='clear:left;display:block;width:100%;') ￥#{items.goodsSellPrice}
+			p
+				span(style='clear:left;display:block;width:100%;') 1件
+		else
+			p.list
+				if items.platform_price1
+					span.op ￥#{items.platform_price1}
+				if items.platform_price2
+					span.tp ￥#{items.platform_price2}
+				if items.platform_price3
+					span.tps ￥#{items.platform_price3}
+
+			p
+				if items.until1
+					span.one 1件 - #{items.until1}件
+				if items.until2
+					span.two #{+(items.until1) + 1}件 - #{items.until2}件
+				if items.until3
+					span.three #{+(items.until2) + 1}件 - #{items.until3}件
+
+
+			p.list
+				if items.platform_price4
+					span.fp ￥#{items.platform_price4}
+				if items.platform_price5
+					span.fvp ￥#{items.platform_price5}
+
+			p
+				if items.until4
+					span.four #{+(items.until3) + 1}件 - #{items.until4}件
+				if items.until5
+					span.fv #{+(items.until4) + 1}件 - #{items.until5}件
+		
+	.sl
+		ul
+			li
+				p.retail 建议零售价：
+					span ￥#{items.recommended_retail_price}
+				p.brand 品牌：
+					span #{items.brand_name}
+			li
+				p.sec 包装规格：
+					span #{items.packing_specification}
+			li
+				p.turn 退换货：
+					if items.refund_exchange == 1
+						span 支持退货
+					else if items.refund_exchange == 2
+						span 支持退换货
+					else if items.refund_exchange == 3
+						span 不支持退换货
+					else if items.refund_exchange == 4
+						span 支持换货
+			li(style='border:none')
+				p.shelf 保质期：
+					span #{items.shelf_life}
+				p.brand 最低起定量：
+					span #{items.minimum_order_quantity}
+	.supplier
+		.msup
+			.suplogo
+				img(src="/img/index/sup.png", alt="", width='82', height='82')
+			.supmore
+				h4 #{items.supplierName}
+				p.larea 配送范围：
+					span #{items.shippingScope}
+				p 代理品牌：
+					span #{items.agentBrand}
+
+		.fs
+	.mask
+		.mt
+		.mf
+			span.fail
+				img(src="/img/orders/fail.png", alt="", width='14', height='14')
+			p.banner 
+				a.host(href="")
+					img(src="#{items.detailed_description}", alt="", width='140')
+			.mks
+				a.host(href="")
+					p.txt #{items.name_commodity}
+				if items.goodsSellPrice !== null
+					p.prices ￥#{items.goodsSellPrice}
+				else
+					p.prices ￥#{items.platform_price1}
+				p.sec 规格:#{items.packing_specification}
+			a.host(href="")
+			.action
+				span.mnum 购买数量:
+				p.click
+					span.reduce 
+					input(type="text", value='1', readonly , maxlength='#{items.goodsOnStockNum}')
+					span.add 
+				span.stock 库存：#{items.goodsOnStockNum}
+			a.moreAddshop(href="javascript:void(0);") 确定
+	.footer
+		a.home(href="/supplierlist/#{items.suid}")
+			p 
+				i
+				span 店铺
+		a.coll(href="javascript:void(0);")
+			if items.favorite == 0
+				p(data-mask='0') 
+					i
+						img(src="/img/orders/coll.png", alt="",width='26', height='26')
+					span 收藏
+			else 
+				p(data-mask='1', data-faid='#{items.faid}') 
+					i
+						img(src="/img/orders/addsucc.png", alt="",width='26', height='26')
+					span 取消收藏
+		a(href="javascript:void(0);")
+			p.order 加入进货单

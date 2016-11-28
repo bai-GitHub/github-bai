@@ -1,0 +1,61 @@
+extends ../layout/mycenterLayout
+
+block content
+	.rtitle
+		h1 账户信息
+		a.mt(href="/user/myCenter")
+			i
+		span.edit 编辑
+	.basicmation(smid='#{smid}') 
+		h4 基本信息：
+		p
+			span 登录名称：
+			span #{info.username}
+		form(action="/server/supermarketUpdate",method='post',id="information")
+			p 收货信息：
+			.receiptmation
+				p
+					span &nbsp;&nbsp;&nbsp;&nbsp;收货人：
+					input(type="text",id="consignee",name="user[consignee]", value='#{info.consignee}', disabled)
+					input(type="hidden",id="smid",name="user[smid]",value="#{info.smid}")
+				p
+					span 联系方式：
+					input(type="tel",id="phone" ,name="user[phone]",value='#{info.phone}', maxlength='11', disabled)
+				p
+					span 收货地址：
+					span.ft #{info.province}#{info.city}#{info.county}#{info.marketAreaTwo}#{info.shippingAddress}
+	.veritymation 
+		.promt  若您要修改认证信息，请联系所属服务站。
+		h4 认证信息：
+		p
+			span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超市名称：
+			span.ft #{info.supermarketName}
+		p 
+			span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超市地址：
+			span.ft #{info.province1}#{info.city1}#{info.county1}#{info.marketArea}#{info.marketAreas}
+		p 
+			span &nbsp;&nbsp;&nbsp;&nbsp;营业执照编号：
+			span #{info.licenseNum}
+		p.idscan  
+			span &nbsp;&nbsp;&nbsp;&nbsp;身份证扫描件：
+			br
+			img(src="#{info.identityPic}", alt="", width="187", height="127")
+		p.entscan 
+			span 营业执照扫描件：
+			br
+			img(src="#{info.licensePic}", alt="", width="187", height="127")
+	.sermation
+		h4 服务站信息：
+		p 
+			span 服务站名称：
+			span.ft #{info.serviceStationName}
+		p 
+			span 服务站电话：
+			span.ft #{info.serviceMobile}
+		p 
+			span &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业务员：
+			span.ft #{info.salesman}
+		p 
+			span 业务员电话：
+			span.ft #{info.salesmanMobile}
+

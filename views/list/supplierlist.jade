@@ -1,0 +1,112 @@
+extends ../layout/listLayout
+
+block content
+	.search
+		a.back(href="#{url}")
+		input.wors(type="text", placeholder='商品名称')
+		span.in.out( data-county='#{county}') 搜索
+	.supplier(data-suid='#{suid}', data-smid='#{smid}')
+		p.supl
+			i
+			span.suname
+		p.ps 配送范围：
+			span
+		p.agentBrand 代理品牌：
+			span
+		//p 优惠政策：
+		//	span 满100减800
+		//	span ,
+		//	span 满200减900
+		//	span ,
+		//	span 满300减900
+	.bar(style='display:block;margin-top:0px')
+		ul
+			a(href="javascript:;",data="#{suid}")
+				li.fult 默认
+			a(href="javascript:;",data='#{suid}')
+				li.salesVolume 销量
+					input(type="hidden",id="xiaoliang",value="2")
+			a(href="javascript:;",data='#{suid}')
+				li.prc
+					p
+						span.top 价格
+						span.bottom
+							img(src="/img/orders/xia_1.png", alt="", width='6', height='6')
+							input(type="hidden",id="jiage",value="2")
+			a(href="javascript:void(0);")
+				li.shuai
+					p
+						span 筛选
+						span.con
+							img(src="/img/orders/shuai.png", alt="", width='14', height='14')
+	.list
+		ul
+			if items.goods
+				each i in items.goods
+					li
+						p.banner
+							a(href="/goods/#{i.gid}/#{smid}/#{suid}")
+								img(src="#{i.detailed_description}", alt="", width='200', height='200')
+						div.muo
+							a(href="/goods/#{i.gid}/#{smid}/#{suid}")
+									p.txt #{i.name_commodity}
+							p.sec 规格:#{i.packing_specification}
+							.action
+								p.price ￥#{i.goodsSellPrice}
+								p.click
+									span.reduce
+									input(type="text", value='0', readonly, aotucomplate='off', maxlength='#{i.goodsOnStockNum}')
+									span.add
+			else
+				each i in items
+					li
+						a(href="/goods/#{i.gid}/#{smid}/#{suid}")
+							p.banner
+								img(src="#{i.detailed_description}", alt="", width='200', height='200')
+						div
+							a(href="/goods/#{i.gid}/#{smid}/#{suid}")
+								p.txt #{i.name_commodity}
+							p.sec 规格:#{i.packing_specification}
+							.action
+								p.price ￥#{i.goodsSellPrice}
+								p.click
+									span.reduce
+									input(type="text", value='0', readonly, maxlength='#{i.goodsOnStockNum}')
+									span.add
+		script(src= '/js/price.js', type= 'text/javascript')
+		script(src='/js/supplierMore.js',type='text/javascript')
+		ul.ulTwo
+
+	.warpRight
+		.wl
+		.wr
+			.wt
+				span 返回
+				h4 筛选
+			.cont
+				ul
+					li.pn
+						h3 分类
+						.om
+						
+					li.pl
+						h3 品牌
+						.om
+					li
+						h3 价格
+						.om
+							p 20以下
+							p 20-60
+							p 60-90
+							p 90以下
+			.to
+				a.clear(href="javascript:void(0)") 清空
+				a.sub(href="javascript:void(0)") 确定
+	script(src='/js/supplier.js')
+	.footer
+		p.num 数量：
+			i 0
+		p.allprice 价格：
+			i.last ￥0.00
+		p.addshop
+			a(href="#") 加入进货单

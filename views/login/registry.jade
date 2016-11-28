@@ -1,0 +1,31 @@
+extends ../layout/layout
+
+block content
+	.rtitle
+		h1 注册
+		a(href="/user") &lt;
+	.registry
+		.title
+			h3 1、输入登录信息
+		form(action='/registryFinal', method='post',id="signupForm")
+			fieldset
+				p.rname
+					span 账号
+					input(type='text', placeholder='请输入用户名', name='user[username]',id='username')
+				p.rtel
+					span 手机号
+					input(type='tel', maxlength=11,placeholder='请输入手机号', name='user[mobile]',id="mobile")
+				p.rverity
+					span 验证码
+					input(type='text', placeholder='六位验证码',id="code",maxlength=6, name='user[code]')
+					input(type="button",id="yan",value="获取验证码")
+				p.rpass
+					span 密码
+					input(type='password', placeholder='请输入密码', name='user[loginPassword]',id="loginPassword")
+				p.rrpass
+					span 确认密码
+					input(type='password', placeholder='请确认密码', name='upassword',id="upassword")
+				span.txt 密码8-20个字符，含字母数字字符，字母分大小写。
+				.submit
+					input.btn(type='submit', value='下一步',id="next",onclick="return nextt()")
+

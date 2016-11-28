@@ -1,0 +1,16 @@
+extends ../layout/mycenterLayout
+
+block content
+	.rtitle
+		h1 输入新号码
+		a.mt(href="/user/auth")
+			i
+		span
+			input(id="btn",type="button",value="保存")
+	form(action="/server/supermarketUpdate",method='post',id="signupForm")
+		.center
+			.bind
+				label
+					span 输入新号码:
+					input(type="tel",style="color:#111",id="mobile",name="user[mobile]",maxlength=11, placeholder='请输入新号码',value="")
+					input(type="hidden",id="smid",value="#{user.content.smid}",name="user[smid]")

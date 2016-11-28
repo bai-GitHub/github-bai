@@ -1,0 +1,67 @@
+extends ../layout/listLayout
+
+block content
+	.search
+		a.back(href="#{url}")
+		ul
+			li.one 商品
+			li.two 供应商
+		p.mospce
+			span#one 商品
+			img(src="/img/xia.png")
+		p
+			input#search.wors(type="text")
+			a.in(href="javascript:void(0);", data-county= '#{county}') 搜索
+	.keyword
+		p 热门搜索
+		ul.hotSearch
+			each i in keyWord
+				li(onclick="keySearch(this)") #{i.keyname}
+	.bar
+		ul
+			a(href="javascript:;")
+				li.fult(data="#{suid}") 默认
+			a(href="javascript:;")
+				li.salesVolume(data="#{suid}") 销量
+					input(type="hidden",id="xiaoliang",value="2")
+			a(href="javascript:;")
+				li.prc
+					p
+						span.top(data="#{suid}") 价格
+						span.bottom
+							img(src="/img/orders/xia_1.png", alt="", width='6', height='6')
+							input(type="hidden",id="jiage",value="2")
+			a(href="javascript:void(0);")
+				li.shuai
+					p
+						span 筛选
+						span.con
+							img(src="/img/orders/shuai.png", alt="", width='14', height='14')
+	.list
+		ul
+	.allSupplier
+		ul
+	.warpRight
+		.wl
+		.wr
+			.wt
+				span 返回
+				h4 筛选
+			.cont
+				ul
+					li.pa
+						h3 品牌
+						.om
+
+					li
+						h3 价格
+						.om
+							p
+							p 
+							p 
+							p 
+							p 
+			.to
+				a.clear(href="javascript:void(0)") 清空
+				a.sub(href="javascript:void(0)") 确定
+		

@@ -1,0 +1,31 @@
+extends ../layout/mycenterLayout
+
+block content
+	.rtitle
+		h1 我的账本
+		a.mt(href="/user/myCenter")
+			i
+	script(src="/js/booksMore.js")
+	.btl
+		h5 2016年6月账单记录
+		if items.length > 0
+			each i in items
+				.pay
+					p
+						span #{i.year}
+						br
+						span.time #{i.time}
+					p
+						span 订单支付
+						br
+						span.online 在线支付
+					p.last
+						span.last #{i.recordMoney}
+		else
+			.war
+				p 
+				h3 您没有产生任何交易
+				a(href="/") 去逛逛
+			
+
+

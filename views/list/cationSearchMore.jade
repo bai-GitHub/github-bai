@@ -1,0 +1,20 @@
+//
+   Created by fandimeng on 16/6/24.
+
+each i in items
+    li(gid='#{i.gid}')
+        p.banner
+            a(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+                img(src="#{i.detailed_description}", alt="", width='140')
+        div.muo
+            a(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+                p.txt #{i.name_commodity}
+            p.sec 规格:#{i.packing_specification}
+            .action
+                p.price ￥#{i.goodsSellPrice}
+                p.click
+                    span.reduce
+                    input(type="text", value='0', readonly, maxlength='#{i.goodsOnStockNum}')
+                    span.add
+            p.supname
+                a(href="/supplierlist/#{i.suid}") #{i.supplierName}

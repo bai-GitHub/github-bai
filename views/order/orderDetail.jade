@@ -1,0 +1,133 @@
+extends ../layout/orderLayout
+
+block content
+	- var t = 0
+	- var n = 0
+	- var s = 0
+	.rtitle
+		a(href="/order")
+			i
+		h1 订单详情
+		span.mk(smid='#{smid}', style='display:none;')
+	.state
+		p
+			span &nbsp;&nbsp;订单号：
+			if items.bigOrder
+				span.orderId #{items.bigOrder}
+			if items.orderId
+				span.orderId #{items.orderId}
+
+		p
+			span 订单状态：
+			if items.orderState == 1
+				span.paytext 待支付
+			else if items.orderState == 2
+				span.paytext 待发货
+			else if items.orderState == 3
+				span.paytext 已发货
+			else if items.orderState == 4
+				span.paytext 交易完成
+			else if items.orderState == 5
+				span.paytext 已取消
+			else
+				span.paytext 退货中
+
+			- t = items.orderState
+	.receipt
+		p.rename &nbsp;&nbsp;&nbsp;&nbsp;#{items.consignee}&nbsp;&nbsp;#{items.phone}
+		p.readd &nbsp;&nbsp;&nbsp;&nbsp;
+			i
+			span #{items.shippingAddress}
+	.supplier
+		each i in items.goods
+			.content(gid='#{i.gid}')
+
+
+				p.banner
+					img(src="#{i.detailed_description}", alt="")
+
+				.detail
+					p.txt
+						span #{i.name_commodity}
+
+					p.prices #{i.packing_specification}
+					p.click
+						span.price ￥#{i.goodsPrice}
+						span.cnum x#{i.goodsNum}
+				- n += i.goodsNum
+				- s = items.totalPayment
+	.other
+		if items.bigOrder
+		if items.orderId
+			.mess
+				p.mt 留言：
+				p.ms #{items.message}
+		if items.bigOrder
+			.dataP
+				p.payline
+					span 付款方式：
+					span 在线支付
+				p
+					span 订单金额：
+					span.wl ￥#{items.reduction}
+				p
+					span 商家促销：
+					span.last ￥#{items.discountAmounts}
+				p.self
+					span 优惠券：
+					span.last ￥#{items.discountAmount}
+				p.plast
+					span
+						i 下单时间：
+						i #{items.orderTime}
+					span
+						i 实付款：
+						i.wl ￥#{items.totalPayment}
+		if items.orderId
+			.data
+				p
+					if(items.orderTime)
+						span 下单时间：
+						span #{items.orderTime}
+
+				p
+					if(items.payTime)
+						span 付款时间：
+						span #{items.payTime}
+				p
+					if(items.deliverTime)
+						span 发货时间：
+						span #{items.deliverTime}
+				p
+					if(items.completeTime)
+						span 收货时间：
+						span #{items.completeTime}
+				p
+					if(items.complainTime)
+						span 申诉时间：
+						span #{items.complainTime}
+				.plast
+					p
+						span
+							i 总计:
+							i #{n}件
+						span
+							i 订单金额：
+							i.wl ￥#{items.payment}
+	script(src='/js/payMore.js')
+	.payload
+		if t == 1
+			a.paynext.payall(href="/user/pay", big='#{big}', style='width:130px;float:right;margin-right:20px;') 付款
+			a.can(href="", style='width:130px;float:right;') 取消订单
+		else if t == 2
+			a.paynext.war(href="/user/pay", big='#{big}', style='width:130px;float:right;margin-right:20px;') 提醒发货
+			a.can(href="javascript:void(0);", style='visibility:hidden;opacity:0;width:130px;') 取消订单
+
+		else if t == 3
+			a.can(href="javascript:void(0);", style='border:none;cursor:default;')
+			
+		else if t == 4
+			a.paynext.agin(href="javascript:void(0);", big='#{big}', style='width:130px;float:right;margin-right:20px;') 再次购买
+			a.can.shen(href="", style='width:130px;float:right;') 申诉
+	//- .rebtn
+	//- 	a 提醒发货

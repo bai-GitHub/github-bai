@@ -1,0 +1,21 @@
+extends ../layout/mycenterLayout
+
+block content
+	.rtitle
+		h1 手机验证
+		a.mt(href="/user/security")
+			i
+		a(href="javascript:;")
+			span.btn 下一步
+	form(action="",method='post',id="signupForm")
+		.center
+			.bind
+				label
+					span 绑定手机号
+					input(type="tel",name="user[mobile]",id="mobile",value='#{user.content.mobile}',disabled)
+			.auth
+				label
+					span 验证码
+					input(type="tel",maxlength=6,id="code", placeholder='六位验证码')
+					input(type="button",value="获取验证码",id="yan")
+					input(type="hidden",value="",id="zheng")

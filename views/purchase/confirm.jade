@@ -1,0 +1,73 @@
+extends ../layout/purchaseLayout
+
+block content
+	- var s = 0
+	- var m = 0
+	.rtitle
+		h1 提交订单
+		a(href="#{url}")
+			i
+	.infor
+		p
+			span.consignee 
+			span.phone 
+		p
+			span.map
+			span.address 
+	.list
+		- var n = 0
+		- var r = 0
+		each item in items.json
+			p.sname
+				span #{item.name}
+			ul(data-suid='#{item.suid}',data-smid='#{items.smid}')
+				each i, key in item.more
+					li(data-gid='#{i.gid}',data-coid='#{i.coid}', data-stid='#{i.stid}')
+						p.banner
+							a(href="/goods/#{i.gid}/#{items.smid}/#{item.suid}")
+								img(src="#{i.img}", alt="")
+						.cc
+							a(href="/goods/#{i.gid}/#{items.smid}/#{item.suid}")
+								p.txt #{i.name}
+							p.sec #{i.pack}
+							.action
+								p.price ￥#{i.price}
+								p.sum
+									span x#{i.num}
+					if key > 0
+						- n +=  +(i.num) 
+						- r += i.num * +(i.price)
+					else 
+						- n  =  +(i.num) 
+						- r  = n * +(i.price)
+				.mess(data-name='#{item.name}')
+					p 
+						input(type="text", id="message",placeholder='留言')
+					p.l 
+						span 共#{n}件
+						span |
+						span.last ￥#{r}
+				- s += n
+				- m += r
+	.payme(ssid='#{ssid}')
+		p(style='display:none;')
+			label
+				input(type="radio", name='pay', payType='2', readonly, disabled)
+			span 微信支付
+		p.walk
+			label
+				input(type="radio", name='pay', payType='1', checked)
+			span 货到付款
+		p.checkPay 请选择支付方式
+	.sub
+		p.worders
+			span 总计：
+			span.allpirc #{s}件&nbsp;|&nbsp;
+		p#last
+			span.last ￥#{m}
+
+		p.submit
+			a.action(href="javascript:void(0);") 提交订单
+
+	script(src='/js/histroy.js')
+	//- /user/cashPay

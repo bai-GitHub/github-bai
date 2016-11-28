@@ -1,0 +1,136 @@
+extends ../layout/listLayout
+
+block content
+    .search
+        a.back(href="#{url}",data='#{bid}')
+        ul
+            li.one 商品
+            li.two 供应商
+        p.mospce
+            span#one 商品
+            img(src="/img/xia.png")
+        p
+            input#search(type="text" style="text-indent: 64px;")
+            a.bidSearch(href="javascript:void(0);", data-county= '#{county}') 搜索
+    if a == 1
+        .bar(style='display:block')
+            ul
+                a(href="javascript:;")
+                    li.fult 默认
+                a(href="javascript:;")
+                    li 销量
+                a(href="javascript:;")
+                    li.prc
+                        p
+                            span.top 价格
+                            span.bottom
+                                img(src="/img/orders/xia_1.png", alt="", width='10', height='10')
+                a(href="javascript:void(0);")
+                    li.shuai
+                        p
+                            span 筛选
+                            span.con
+                                img(src="/img/orders/shuai.png", alt="", width='14', height='14')
+        script(src='/js/logoMore.js')
+        .list
+            ul
+                each i in items
+                    li(gid='#{i.gid}')
+                        p.banner
+                            a(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+                                img(src="#{i.detailed_description}", alt="", width='140')
+                        div.muo
+                            a(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+                                p.txt #{i.name_commodity}
+                            p.sec 规格:#{i.packing_specification}
+                            .action
+                                p.price ￥#{i.goodsSellPrice}
+                                p.click
+                                    span.reduce
+                                    input(type="text", value='0', readonly, , maxlength='#{i.goodsOnStockNum}')
+                                    span.add
+                            p.supname
+                                a(href="/supplierlist/#{i.suid}") #{i.supplierName}
+            ul.ulTwo
+
+                .footer
+                    p.num 数量：
+                        i 0
+                    p.allprice 价格：
+                        i.last ￥0.00
+                    p.shop
+                        a.addshop(href="javascript:void(0);") 加入进货单
+                        span 3
+    else
+        .bar
+            ul
+                a(href="javascript:;")
+                    li.fult 默认
+                a(href="javascript:;")
+                    li 销量
+                a(href="javascript:;")
+                    li.prc
+                        p
+                            span.top 价格
+                            span.bottom
+                                img(src="/img/orders/xia_1.png", alt="", width='10', height='10')
+                a(href="javascript:void(0);")
+                    li.shuai
+                        p
+                            span 筛选
+                            span.con
+                                img(src="/img/orders/shuai.png", alt="", width='14', height='14')
+        script(src='/js/logoMore.js')
+        .list(style="margin-top: 53px;")
+            ul
+                each i in items
+                    li(gid='#{i.gid}')
+                        p.banner
+                            a(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+                                img(src="#{i.detailed_description}", alt="", width='140')
+                        div.muo
+                            a(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+                                p.txt #{i.name_commodity}
+                            p.sec 规格:#{i.packing_specification}
+                            .action
+                                p.price ￥#{i.goodsSellPrice}
+                                p.click
+                                    span.reduce
+                                    input(type="text", value='0', readonly, maxlength='#{i.goodsOnStockNum}')
+                                    span.add
+                            p.supname
+                                a(href="/supplierlist/#{i.suid}") #{i.supplierName}
+            ul.ulTwo
+                .footer
+                    p.num 数量：
+                        i 0
+                    p.allprice 价格：
+                        i.last ￥0.00
+                    p.shop
+                        a.addshop(href="javascript:void(0);") 加入进货单
+                        span 3
+    script(src= '/js/price.js', type= 'text/javascript')
+    .warpRight
+        .wl
+        .wr
+            .wt
+                span 返回
+                h4 筛选
+            .cont
+                ul
+                    li.pa
+                        h3 品牌
+                        .om
+                       li
+                        h3 价格
+                        .om
+                            p
+                            p
+                            p
+                            p
+                            p
+            .to
+                a.clear(href="javascript:void(0)") 清空
+                a.sub(href="javascript:void(0)") 确定
+
+

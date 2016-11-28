@@ -1,0 +1,39 @@
+{
+  "name": "SyntaxError",
+  "version": "0.1.0",
+  "E-Mail": "lianghao@kuaixiaohulian.com",
+  "Team": "kxhl",
+  "home": "http://www.kuaixiaohulian.com",
+  "download": false,
+  "private": true,
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "connect-mysql": "^2.1.1",
+    "connect-mysql-session": "^0.1.3",
+    "cookie": "^0.2.3",
+    "cookie-parser": "^1.4.1",
+    "cookie-session": "^2.0.0-alpha.1",
+    "csurf": "^1.8.3",
+    "express": "^4.13.4",
+    "express-mysql-session": "^1.0.0",
+    "helmet": "^1.3.0",
+    "helmet-csp": "^1.1.0",
+    "iconv-lite": "^0.4.13",
+    "jade": "^1.11.0",
+    "moment": "^2.13.0",
+    "morgan": "^1.7.0",
+    "mysql": "^2.10.2",
+    "node-inspector": "^0.12.8",
+    "nodemon": "^1.9.1",
+    "orm": "^2.1.30",
+    "os": "^0.1.1",
+    "pm2": "^1.0.2",
+    "redis": "^2.6.0-0",
+    "request": "^2.72.0",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.1"
+  }
+}

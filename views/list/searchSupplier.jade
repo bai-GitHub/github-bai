@@ -1,0 +1,12 @@
+//
+   Created by fandimeng on 16/6/2.
+each i in items
+   a.url(href="/supplierlist/#{i.suid}")
+      li
+         p.one #{i.supplierName}
+         p.two
+            span 配送范围：
+            u #{i.provincePs} #{i.cityPs} #{i.countyPs}
+         p.thr
+            span 代理品牌：
+            u #{i.agentBrand}

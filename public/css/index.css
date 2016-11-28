@@ -1,0 +1,409 @@
+@charset 'utf-8';
+html,body{
+	margin-bottom:80px;
+	line-height:1.2;
+	overflow:auto;
+}
+.coulse{
+	height:180px;
+	overflow:hidden;
+	position:relative;
+}
+.ctop{
+	width:95%;
+	margin:8px auto 0;
+	position:fixed;
+	left:15px;
+	z-index:1;
+
+}
+.ccback{
+	position:fixed;
+	width:100%;
+	background:url('/img/hea.png') center center;
+	height:49px;
+	z-index: 9999;
+}
+.ctop .search{
+	width:80%;
+	display:inline-block;
+}
+.mor{
+	text-align: center;
+	color:#333;
+	padding:15px 0;
+}
+.search input{
+	width:95%;
+	height:30px;
+	outline:none;
+	background:rgba(255, 255, 255, .66);
+	border:1px solid rgba(222, 216, 163, .0);
+	text-indent:.3em;
+	border-radius:0 6px 6px 0;
+	color:#5d5a5a;
+}
+.ctop .notice{
+	display:inline-block;
+	width:17%;
+	text-align:center;
+	margin-left:3%;
+	height:32px;
+	position:absolute;
+	line-height:32px;
+	top:0;
+	right:0;
+	background:url('/img/index/xiaoxi.png') no-repeat 30px center;
+}
+.ctop span{
+	display:inline-block;
+	width:33px;
+	height:32px;
+	float:left;
+	background:url('/img/index/search.png') center center no-repeat rgba(255, 255, 255, .66);
+	border-radius:6px 0 0 6px;
+}
+
+.poster{
+	height:100%;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	overflow:hidden;
+}
+.poster ul{
+	width:600%;
+	height:100%;
+	line-height:200px;
+}
+.poster li{
+	height:100%;
+	float:left;
+	text-align:center;
+	line-height:220px;
+}
+.poster ul li a{
+	display: inline-block;
+}
+.poster ul li a img{
+	height: 180px;
+}
+.cation h4{
+	color:#fbaa1e;
+
+}
+.th i,.sh i,.bh i,.hh em{
+	display:inline-block;
+	position:absolute;
+	background:#fbaa1e;
+	width:60px;
+	height:1px;
+	top:50%;
+	margin-top:0.5px;
+}
+.sh i{
+	background:#f86b39;
+}
+.bh i{
+	background:#e96969;
+}
+.hh em{
+	background:#2e3253;
+}
+.left{
+	left:27%;
+}
+.right{
+	right:27%;
+}
+.supplier h4{
+	color:#f86b39;
+}
+.brand ul a li p{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+
+}
+.brand h4{
+	color:#e96969;
+}
+.histry h4{
+	color:#2e3253;
+	font-weight:bold;
+}
+.sh .left{
+	left:16%;
+}
+.sh .right{
+	right:16%;
+}
+.bh .left,.hh .left{
+	left:18%;
+}
+.bh .right,.hh .right{
+	right:18%;
+}
+.supplier .con,.brand .con,.histry .con{
+	width:22px;
+	height:22px;
+	position:relative;
+	top:2px;
+	margin-right:5px;
+	background:#fff;
+}
+
+.supimg,.own{
+	float:left;
+}
+.supplier .supimg{
+	width:30%;
+	height:94px;
+	text-align:center;
+	padding:10px 5px 0;
+
+}
+.supimg img{
+}
+.aul{
+	height:205px;
+}
+.aul img{
+	height:100%;
+}
+.own{
+	width:60%;
+	height:100%;
+}
+.supplier .own p{
+	padding: 3px 0;
+	color: #666;
+	height: 40px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: pre-wrap-auto;
+	text-overflow: ellipsis;
+	/* white-space: nowrap; */
+	overflow: hidden;
+	text-align: justify;
+}
+.ht{
+	text-align: left;
+	padding:5px 0;
+	margin-left:7.5px;
+}
+.cation,.supplier,.brand{
+	text-align:center;
+}
+.cation h4,.supplier h4,.brand h4,.histry h4{
+	position:relative;
+	border-top:1px solid #eee;
+	font-weight:bold;
+	font-size:14px;
+	padding:6px 0;
+	height:28px;
+	line-height:28px;
+}
+.cation ul,.supplier ul,.brand ul{
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+}
+.cation ul:after,.supplier ul:after,.brand ul:after{
+	content:'';
+	display:block;
+	clear:both;
+	height:0;
+	line-height:0;
+}
+.cation .xiu,.cation .liang,.cation .jin,.cation .ri{
+	border-left:1px solid #efefef;
+	border-right:1px solid #efefef;
+}
+.cation li,.supplier li{
+	width:32.9%;
+	float:left;
+	text-align:center;
+	border-bottom:1px solid #eee;
+}
+.cation .wen,.cation .fait,.cation .other{
+	border-bottom:1px solid #efefef;
+	border-top:1px solid #efefef;
+}
+.cation .fait{
+	border-left:1px solid #efefef;
+	border-right:1px solid #efefef;
+}
+.brand li{
+	width:24.7%;
+	float:left;
+	border-right:1px solid #eee;
+	border-bottom:1px solid #eee;
+	min-width: 69px;
+}
+.brand li img{
+	width:69px;
+}
+.cation a{
+	display:block;
+	width:100%;
+	height:100%;
+	color:#000;
+}
+
+.supplier li{
+	width: 49.6%;
+	height: 80px;
+	float: left;
+	text-align: center;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+.supplier a{
+	color:#000;
+}
+.supplier p{
+	font-size:12px;
+	padding:8px 0;
+	margin:0 auto;
+}
+.supplier h5{
+	margin-top:5px;
+	color:#333;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-align: left;
+}
+.histry{
+	text-align:center;
+	width:100%;
+}
+.histry ul:after,.fotbar:after,.brand:after{
+	content:'';
+	display:block;
+	height:0;
+	line-height:0;
+	clear:both;
+}
+.histry li{
+	width:49.7%;
+	float:left;
+	padding:8px 0;
+	border-right:1px solid #eee;
+	border-bottom:1px solid #eee;
+}
+.histry li a{
+	color:#2e3253;
+}
+.histry ul{
+	border-top:1px solid #eee;
+}
+.histry i{
+	float:left;
+	color:#ff0000;
+	font-weight:bold;
+	font-style:normal;
+	margin-left:7.5px;
+}
+.histry a.add{
+	float:right;
+	color:#5EC3F0;
+	width:25px;
+	height:25px;
+	margin-right:10px;
+}
+.prompt{
+	background:black;
+	width:240px;
+	height:80px;
+	position:absolute;
+	border:1px solid #a9a9a9;
+	left:50%;
+	top:50%;
+	margin-left:-120px;
+	margin-top:-40px;
+	display:none;
+}
+.prompt h3{
+	border-bottom:1px solid #a9a9a9;
+	color:#ff0000;
+}
+.prompt p{
+	color:#333;
+}
+
+.ot{
+	color:#565656;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fotbar{
+	text-align:center;
+	border-top:1px solid #eee;
+	border-left:1px solid #eee;
+	border-bottom:1px solid #eee;
+	position:fixed;
+	bottom:0;
+	height: 45px;
+	width:100%;
+	background:#fff;
+	line-height: 15px;
+	z-index: 999;
+}
+
+.fotbar a{
+	color:#000;
+}
+.fotbar li{
+	width:24.7%;
+	float:left;
+	font-size:1.2rem;
+	height:50px;
+	padding-top: 3px;
+}
+.home,.fen,.orders,.my{
+	background:url('/img/index/shouye.png') no-repeat center .2rem;
+	background-size:auto 2rem;
+	padding-top:2.3rem;
+}
+.fen{
+	background:url('/img/index/vfenlei.png') no-repeat center .2rem;
+	background-size:auto 2rem;
+	padding-top:2.3rem;
+}
+.orders{
+	background:url('/img/index/vjinhuodan.png') no-repeat center .2rem;
+	background-size:auto 2rem;
+	padding-top:2.3rem;
+}
+.my{
+	background:url('/img/index/vwode.png') no-repeat center center;
+	background-size:auto 2rem;
+	padding-top:2.3rem;
+}
+
+.fh{
+	color:#FFB12A;
+}
+.brand ul img{
+	height: 90px;
+}

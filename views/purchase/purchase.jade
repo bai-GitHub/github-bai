@@ -1,0 +1,122 @@
+extends ../layout/purchaseLayout
+
+block content
+	- var s = 0
+	.rtitle
+		h1 进货单
+		a(href="/")
+			i
+		span.edit 编辑
+	.content
+		if drag == 1
+			p.empty_img
+				img(src='/img/orders/jinhuodankong.png', width='')
+			p.empty 您的进货单是空的，去采购新商品吧。
+
+			a.empty_a(href="/") 去逛逛
+		else
+			.list
+				ul
+					each item, key in items
+						li(data-suid={suid:key})
+							p.ssname
+								label
+									input(type="checkbox", autocomplete='on')
+								i
+								each i, key in item
+									if key > 0
+									else
+										span #{i.supplierName}
+							each i in item
+								.shop
+									p.check
+										label
+											input(type='hidden', value='#{i.stid}', autocomplete='on')
+											input(type="checkbox", data-more={supname:i.supplierName,gid:i.gid,name:i.name_commodity,pack:i.packing_specification,price:i.platform_price,img:i.detailed_description,coid:i.coid}, data-stid='#{i.stid}', autocomplete='on')
+									a.href(href="/goods/#{i.gid}/#{smid}/#{key}")
+										p.banner
+											img(src="#{i.detailed_description}", alt="", width='130', height='130')
+									.cc
+										a.href(href="/goods/#{i.gid}/#{smid}/#{key}")
+											p.txt #{i.name_commodity}
+										p.sec #{i.packing_specification}
+										.action
+											if i.goodsSellPrice !== null
+												p.price ￥#{i.platform_price}
+											else
+												p.price.prices ￥#{i.platform_price1}
+												if i.platform_price1
+													i.pricec.op.none ￥#{i.platform_price1}
+												if i.platform_price2
+													i.pricec.tp.none ￥#{i.platform_price2}
+												if i.platform_price3
+													i.pricec.tps.none ￥#{i.platform_price3}
+												if i.platform_price4
+													i.pricec.fp.none ￥#{i.platform_price4}
+												if i.platform_price5
+													i.pricec.fvp.none ￥#{i.platform_price5}
+												if i.until1
+													em.one.none 1件 - #{i.until1}件
+												if i.until2
+													em.two.none #{+(i.until1) + 1}件 - #{i.until2}件
+												if i.until3
+													em.three.none #{+(i.until2) + 1}件 - #{i.until3}件
+												if i.until4
+													em.four.none #{+(items.until3) + 1}件 - #{i.until4}件
+												if i.until5
+													em.fv.none #{+(i.until4) + 1}件 - #{i.until5}件
+											p.click
+												span.reduce
+												input(class="num",type="text", value='#{i.goodsNum}', readonly, autocomplete='on', maxlength='#{i.goodsOnStockNum}')
+												span.add
+											input(class="minNum",type="hidden", value='#{i.minimum_order_quantity}', readonly)
+								- s = i.minimumAmount
+							.low
+								p.lowprice
+									span 最低起订金额：
+									span ￥#{s}
+								p.lownum
+									span.piece 共<i>0</i>件
+									span |
+									span.last ￥0.00
+	.result
+		.allcheck
+			p
+				label
+					input(type="checkbox")
+				span 全选
+		.allreprice
+			p.myji
+				span 总计：
+				span.piece <i>0</i>件
+			p
+				span.last ￥0.00
+			p.succ
+				a(href="javascript:void(0);") 结算
+		.editclick
+			p
+				a.coll(href="javascript:void(0);") 收藏
+				span.mc 3
+			p
+				a.del(href="javascript:void(0);") 删除
+				span.md 3
+
+
+	.fotbar
+		ul
+			a(href="/")
+				li
+					p.home
+					span.fh 首页
+			a(href="/cation")
+				li
+					p.fen
+					span.fl 分类
+			a(href="/user/purchase")
+				li
+					p.orders
+					span.fo 进货单
+			a(href="/user/myCenter")
+				li
+					p.my
+					span 我的

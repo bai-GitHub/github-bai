@@ -1,0 +1,40 @@
+if items.length > 0
+    each item in items
+        .supplier(id='#{item.orderState}')
+            - var n = 0
+            - var s = 0
+            - var t = ''
+            - var m = ''
+            each more, key in item.order
+                p.sname
+                    span.suplogo
+                    span.name #{key}
+                    span.paytxt 待支付
+                each ite,_key in more
+                    each order, one in ite
+                        each i in order
+                            .content(big='#{i.bigOrder}', gid= '#{i.gid}', order= '#{i.orderId}')
+                                p.banner
+                                    img(src="#{i.detailed_description}", alt="")
+                                .detail
+                                    p.txt
+                                        span #{i.name_commodity}
+                                    p.prices #{i.packing_specification}
+                                    p.click
+                                        span.price ￥#{i.goodsPrice}
+                                        span.cnum x#{i.goodsNum}
+
+                                - n += i.goodsNum
+                                - s  = i.payment
+                                - t  = i.orderState
+                                - m  = i.bigOrder
+                .foot
+                    p.all
+                        span 共#{n}件
+                        span.center |
+                        span.pr ￥#{s}
+                    p.btn
+                        a.cancel.chek(href="/orderDetail", index='1', order='#{key}', style='margin-right:5px;') 查看订单
+                        a.cancel.car(href="javascript:void(0);", big='#{key}') 取消订单
+                        a.pay(href="/user/pay", big='#{key}') 付款
+

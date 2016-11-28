@@ -1,0 +1,256 @@
+extends ./layout/indexLayout
+
+block content
+	.coulse
+		.ccback
+			.ctop
+				span
+				a.search(href="/list")
+					input(type='text', placeholder='搜索商品/供应商')
+				a.notice(href="/notice")
+		.poster
+			ul
+				li.item
+					a(href="")
+						img(src="", alt="", width='414', height='220')
+
+				li.item
+					a(href="")
+						img(src="", alt="", width='414', height='220')
+
+				li.item
+					a(href="")
+						img(src="", alt="", width='414', height='220')
+	.cation
+		h4.th 
+			i.left 
+			| 分类
+			i.right 
+		ul
+
+			li.xiu(data="休闲食品")
+				a(href='/list',onclick="levelSearch(this)")
+			li(data="酒水饮料")
+				a(href='/list',onclick="levelSearch(this)")
+			li.liang(data="粮油副食")
+				a(href='/list',onclick="levelSearch(this)")
+			li.jin(data="进口商品")
+				a(href='/list',onclick="levelSearch(this)")
+			li(data="母婴用品")
+				a(href='/list',onclick="levelSearch(this)")
+			li.ri(data="日用百货")
+				a(href='/list',onclick="levelSearch(this)")
+			li.wen(data="文体办公")
+				a(href='/list',onclick="levelSearch(this)")
+			li.fait(data="生鲜水果")
+				a(href='/list',onclick="levelSearch(this)")
+			li.other(data="其他")
+				a(href='/list',onclick="levelSearch(this)")
+
+	.supplier
+		h4.sh 
+			i.left
+			i.con
+				img(src='/img/index/tuijian.png')
+			| 	供应商展示
+			i.right
+		ul
+				li
+					a.splist(href='/supplierlist/')
+						p.supimg
+							img(src="/img/index/sup.png", alt="", width='60', height='60')
+					.own
+						a.splist(href='/supplierlist/')
+							h5
+							p 主营：
+									span
+				li
+					a.splist(href='/supplierlist/')
+						p.supimg
+							img(src="/img/index/sup.png", alt="", width='60', height='60')
+					.own
+						a.splist(href='/supplierlist/')
+							h5
+							p 主营：
+								span
+				li
+					a.splist(href='/supplierlist/')
+						p.supimg
+							img(src="/img/index/sup.png", alt="", width='60', height='60')
+					.own
+						a.splist(href='/supplierlist/')
+							h5
+							p 主营：
+								span
+				li
+					a.splist(href='/supplierlist/')
+						p.supimg
+							img(src="/img/index/sup.png", alt="", width='60', height='60')
+					.own
+						a.splist(href='/supplierlist/')
+							h5
+							p 主营：
+								span
+				li
+					a.splist(href='/supplierlist/')
+						p.supimg
+							img(src="/img/index/sup.png", alt="", width='60', height='60')
+					.own
+						a.splist(href='/supplierlist/')
+							h5
+							p 主营：
+								span
+				li
+					a.splist(href='/supplierlist/')
+						p.supimg
+							img(src="/img/index/sup.png", alt="", width='60', height='60')
+					.own
+						a.splist(href='/supplierlist/')
+							h5
+							p 主营：
+								span
+
+	.brand
+		h4.bh
+			i.left
+			i.con
+				img(src='/img/index/pinpai.png')
+			| 品牌展示
+			i.right
+		ul
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+			a(href="/list")
+				li
+					img(src="", alt="", width='103')
+					
+	.histry
+		h4.hh
+			em.left
+			em.con
+				img(src='/img/index/jilu.png')
+			| 商品展示
+			em.right
+		ul
+			li
+				p.aul
+					a(href="")
+						img(src="", alt="")
+				a(href="")
+					p.ht 
+				p
+					i ￥0.00
+					a.add.lo(href="javascript:void(0);")
+						img(src='/img/index/tianjia.png')
+			li
+				p.aul
+					a(href="")
+						img(src="", alt="")
+				a(href="")
+					p.ht 
+				p
+					i ￥0.00
+					a.add.lo(href="javascript:void(0);")
+						img(src='/img/index/tianjia.png')
+			li
+				p.aul
+					a(href="")
+						img(src="", alt="")
+				a(href="")
+					p.ht 
+				p
+					i ￥0.00
+					a.add.lo(href="javascript:void(0);")
+						img(src='/img/index/tianjia.png')
+			li
+				p.aul
+					a(href="")
+						img(src="", alt="")
+				a(href="")
+					p.ht 
+				p
+					i ￥0.00
+					a.add.lo(href="javascript:void(0);")
+						img(src='/img/index/tianjia.png')
+			li
+				p.aul
+					a(href="")
+						img(src="", alt="")
+				a(href="")
+					p.ht 
+				p
+					i ￥0.00
+					a.add.lo(href="javascript:void(0);")
+						img(src='/img/index/tianjia.png')
+			li
+				p.aul
+					a(href="")
+						img(src="", alt="")
+				a(href="")
+					p.ht 
+				p
+					i ￥0.00
+					a.add.lo(href="javascript:void(0);")
+						img(src='/img/index/tianjia.png')
+	p.mor 没有更多了
+	.fotbar
+		div
+			ul
+				a(href="/")
+					li
+						p.home
+						span.fh 首页
+				a(href="/cation")
+					li
+						p.fen
+						span 分类
+				a(href="/user/purchase")
+					li
+						p.orders
+						span 进货单
+				a(href="/user/myCenter")
+					li
+						p.my
+						span 我的

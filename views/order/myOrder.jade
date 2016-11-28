@@ -1,0 +1,121 @@
+extends ../layout/orderLayout
+
+block content
+    .rtitle
+        .selct
+            p.status(order='1') 全部订单
+                i
+                    img(src='/img/xia.png', width='10', height='10')
+            .mk(smid='#{smid}')
+                i
+                p.all 全部订单
+                p(orderStatus='1') 待付款
+                p(orderStatus='2') 待发货
+                p(orderStatus='3') 已发货
+                p(orderStatus='4') 交易完成
+                p(orderStatus='7') 已申诉
+                p(orderStatus='5') 已取消
+                p.faild(orderStatus='6') 退货中
+        a(href="/user/myCenter")
+            i
+        span
+            a#succSS(href='/succAppeal') 搜索
+    .orderSearchMsg
+        each item in items
+            .supplier(id='#{item.orderState}')
+                - var n = 0
+                - var s = 0
+                - var t = ''
+                - var m = ''
+                if item.orderState == 1
+                    each more, key in item.order
+                        p.sname
+                            span.suplogo
+                            span.name #{key}
+                            span.paytxt 待支付
+                        each ite in more
+                            each order, one in ite
+                                each i in order
+                                    .content(big='#{i.bigOrder}', gid= '#{i.gid}', order= '#{i.orderId}')
+                                        p.banner
+                                            img(src="#{i.detailed_description}", alt="")
+                                        .detail
+                                            p.txt
+                                                span #{i.name_commodity}
+                                            p.prices #{i.packing_specification}
+                                            p.click
+                                                span.price ￥#{i.goodsPrice}
+                                                span.cnum x#{i.goodsNum}
+
+
+                                        - n += i.goodsNum
+                                        - s  = i.payment
+                                        - t  = i.orderState
+                                        - m  = i.bigOrder
+                        .foot
+                            p.all
+                                span 共#{n}件
+                                span.center |
+                                span.pr ￥#{s}
+                            p.btn
+                                a.cancel.chek(href="/orderDetail", index='1', order='#{key}', style='margin-right:5px;') 查看订单
+                                a.cancel.car(href="javascript:void(0);", big='#{key}') 取消订单
+                                a.pay(href="/user/pay", big='#{key}') 付款
+                else
+                    each more, vals in item.order
+                        each ite in more
+                            each order, key in ite
+                                each i, one in order
+                                    if one > 0
+                                    else
+                                        p.sname
+                                            span.suplogo
+                                            span.name #{i.supplierName}
+                                            if i.orderState == 1
+                                                span.paytxt 待支付
+                                            else if i.orderState == 2
+                                                span.paytxt 待发货
+                                            else if i.orderState == 3
+                                                span.paytxt 已发货
+                                            else if i.orderState == 4
+                                                span.paytxt 交易完成
+                                            else if i.orderState == 5
+                                                span.paytxt 已取消
+                                            else if i.orderState == 7
+                                                span.paytxt 已申诉
+                                    .content(big='#{i.bigOrder}', gid= '#{i.gid}', order= '#{i.orderId}')
+                                        p.banner
+                                            img(src="#{i.detailed_description}", alt="")
+                                        .detail
+                                            p.txt
+                                                span #{i.name_commodity}
+                                            p.prices #{i.packing_specification}
+                                            p.click
+                                                span.price ￥#{i.goodsPrice}
+                                                span.cnum x#{i.goodsNum}
+                                        - n += i.goodsNum
+                                        - s  = i.payment
+                                        - t  = i.orderState
+                                        - m  = i.bigOrder
+                                .foot
+                                    p.all
+                                        span 共#{n}件
+                                        span.center |
+                                        span.pr ￥#{s}
+
+                                    if t == 2
+                                        p.btn
+                                            a.cancel.chek(href="/orderDetail", index='2', order='#{key}') 查看订单
+                                            a.cancel.war(href="javascript:void(0);", index='2', order='#{key}', style='margin-left:5px;') 提醒发货
+                                    else if t == 3
+                                        p.btn
+                                            a.cancel.chek(href="/orderDetail", index='2', order='#{key}') 查看订单
+                                            a.pay.car(href="javascript:void(0);", order='#{key}') 接收
+                                    else if t == 4
+                                        p.btn
+                                            a.cancel.chek(href="/orderDetail", index='2', order='#{key}', style='margin-right:5px') 查看订单
+                                            a.cancel.shen(href="javascript:void(0);", order='#{key}') 申诉
+                                            a.pay1.agin(href="javascript:void(0);", order='#{key}') 再次购买
+                                    else if t == 5
+                                        p.btn
+                                            a.cancel.chek(href="/orderDetail", index='2', order='#{key}') 查看订单

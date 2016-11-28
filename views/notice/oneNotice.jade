@@ -1,0 +1,11 @@
+extends ../layout/noticeLayout
+
+block content
+	.rtitle
+		h1 公告详情
+		a(href="/") &lt;
+	.content
+		h3.title #{items.title}
+		p.time #{items.createTime}
+		.area.
+			#{items.content}

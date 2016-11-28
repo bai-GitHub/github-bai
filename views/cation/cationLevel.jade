@@ -1,0 +1,11 @@
+
+each i in level
+   p
+      a(href='/list',onclick="levelSearchEr(this)")
+         span #{i.levelName2}
+         span.gt &gt;
+   ul
+      each h in i.class3
+         a(href='/list',onclick="levelSearch(this)")
+            li #{h.levelName3}
+

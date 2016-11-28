@@ -1,0 +1,26 @@
+extends ../layout/layout
+
+block content
+	//登录页面
+	.wt
+		h1 用户登录
+	.wf
+		form(action="/server/supermarketLogin",method='post',id="signupForm")
+			.uname
+				label 账&nbsp;号
+				input(type='text', placeholder='用户名/手机号', name='user[username]')
+			.upass
+				label 密&nbsp;码
+				input(type='password', placeholder='密码', name='user[loginPassword]')
+			.err
+				if(user)
+					input(type="text",name="",readOnly="true",value="#{user}")
+				else
+					input(type="text",name="passwordError",readOnly="true",value="")
+
+			input.sub(type='submit', value='登录')
+			.ugot
+				a.wfp(href='/forgot') 忘记密码?
+		.pom
+			a.wnr(href='/registry') 立即注册
+

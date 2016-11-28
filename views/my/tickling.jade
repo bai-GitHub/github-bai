@@ -1,0 +1,15 @@
+extends ../layout/mycenterLayout
+block content
+    .rtitle
+        h1 意见反馈
+        a.mt(href="/user/myCenter")
+            i
+    form(action="/server/FeedbackAdd",method='post',id="signupForm")
+        .tick
+            .area
+                textarea(name="user[content]",id="content")
+                p
+                    span.o 0
+                    span.s /200
+        .submit
+            p 提交

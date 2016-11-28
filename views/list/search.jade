@@ -1,0 +1,36 @@
+
+if items.length > 0
+	each i, key in items
+		li(gid='#{i.gid}/xyz')
+			p.banner
+				a(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+					img(src="#{i.detailed_description}", alt="", width='140')
+			div.muo
+				a.aurl(href="/goods/#{i.gid}/#{smid}/#{i.suid}")
+					p.txt #{i.name_commodity}
+				p.sec 规格:#{i.packing_specification}
+				.action
+					p.price ￥#{i.goodsSellPrice}
+					p.click
+						span.reduce
+						input(type="text", value='0', readonly, maxlength='#{i.goodsOnStockNum}')
+						span.add
+				p.supname
+					a(href="/supplierlist/#{i.suid}") #{i.supplierName}
+	script(src='/js/backbtn.js')
+	script(src='/js/nameSearchMore.js')
+	.footer
+		p.num 数量：
+			i 0
+		p.allprice 价格：
+			i.last ￥0.00
+		p.shop
+			a.addshop(href="javascript:void(0);") 加入进货单
+			span 3
+	if key > 0
+	else
+		script(src= '/js/price.js', type= 'text/javascript')
+else
+	p.nologo
+	p.sy 抱歉没有找到你要的商品
+

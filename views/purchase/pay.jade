@@ -1,0 +1,13 @@
+extends ../layout/purchaseLayout
+
+block content
+	.rtitle
+		h1 支付
+		a(href="/order") &lt;
+	.mask
+		p.qrcode
+			img(src='')
+		p 长按支付
+		p.sp(data-succ='#{items}')
+
+	script(src='/js/finalPay.js')

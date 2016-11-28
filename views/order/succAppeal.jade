@@ -1,0 +1,16 @@
+extends ../layout/orderLayout
+
+block content
+    .search
+        a.back(href="/order")
+        ul
+            li.one 商品
+            li.two 订单号
+        p.mospce
+            span#one 商品
+            img(src="/img/xia.png")
+        p
+            input#search.wors(type="text")
+            a.inOrder(href="javascript:void(0);", data-county= '#{county}', smid='#{smid}') 搜索
+    .orderSearchMsg
+        script(src='/js/goodsORsupplier.js')

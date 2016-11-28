@@ -1,0 +1,93 @@
+@charset 'utf-8';
+body,html{
+	height:100%;
+	background:#eee;
+}
+.rtitle{
+	text-align:center;
+	position:relative;
+	background:#fff;
+}
+.rtitle h1{
+	font-size:24px;
+	color:#333;
+}
+.rtitle a{
+	position:absolute;
+	left:0;
+	top:0;
+	font-size:30px;
+	width:13%;
+	height:100%;
+	line-height:43px;
+	color:#000;
+}
+.content{
+	margin: 0px auto;
+	border-top: 1px solid #eee;
+	padding: 5px 5px;
+	background: #fff;
+}
+.content div{
+	float:left;
+	width:15%;
+	height:100%;
+
+}
+.img{
+	text-align:center;
+}
+.content .txt{
+	width:84%;
+	text-indent:.4em;
+	height:45px;
+	position: relative;
+
+}
+.content:after{
+	content:'';
+	display:block;
+	height:0;
+	line-height:0;
+	clear:both;
+}
+.data{
+	float:right;
+	margin-right:5px;
+	color:#a9a9a9;
+}
+.kt{
+	font-size:16px;
+	color:#111;
+	font-weight:bold;
+}
+.notice{
+	font-size:12px;
+	color:#a9a9a9;
+}
+
+.title{
+	padding:10px 0;
+	text-align:center;
+	color:#ffa200;
+}
+.time{
+	text-align:center;
+	color:#777;
+}
+.content .area{
+	width:100%;
+	color:#232949;
+	padding:25px 0;
+	text-indent:2em;
+}
+.txt .remove{
+	position: absolute;
+	right: 11px;
+	top: 22px;
+	width: auto;
+	height: auto;
+}
+.remove img{
+	width: 20px;
+}

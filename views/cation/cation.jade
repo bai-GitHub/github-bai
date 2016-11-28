@@ -1,0 +1,78 @@
+extends ../layout/cationLayout
+
+block content
+	.coulse
+		.ctop
+			span 
+			a.search(href="/list")
+				input(type='text', placeholder='搜索商品/供应商')
+			a.notice(href="/notice") 
+	.cation
+		.floor
+			ul
+				li
+					span(style="float: left;width: 5%;background: #ff6600;height: 55px;")
+					p.current#level1 休闲食品
+					.silder
+						.sild
+							each i in level
+								p
+									a(href='/list',onclick="levelSearchEr(this)")
+										span #{i.levelName2}
+										span.gt &gt;
+								ul
+									each h in i.class3
+										a(href='/list',onclick="levelSearch(this)")
+											li #{h.levelName3}
+
+
+				li
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level2 酒水饮料
+					.silder
+				li
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level3 粮油副食
+					.silder
+				li
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level4 进口商品
+					.silder
+				li
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level5 母婴用品
+					.silder
+				li
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level6 日用百货
+					.silder
+				li
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level7 文体办公
+					.silder
+				li
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level8 生鲜水果
+					.silder
+				li.other
+					span(style="float: left;width: 5%;background: ##f2f2f2;height: 55px;")
+					p#level9 其他
+					.silder
+	.fotbar
+		ul
+			a(href="/")
+				li 
+					p.home
+					span.fh 首页
+			a(href="/cation")
+				li 
+					p.fen
+					span.fl 分类
+			a(href="/user/purchase")
+				li 
+					p.orders
+					span.fo 进货单
+			a(href="/user/myCenter")
+				li 
+					p.my
+					span.mh 我的

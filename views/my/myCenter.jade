@@ -1,0 +1,72 @@
+extends ../layout/mycenterLayout
+
+block content
+	.mytop
+		p
+			a(href="/user/settings")
+		.mylogo
+			img(src="/img/head.png")
+		.b_title #{user.username}
+	.myorder
+		p
+			span.mo 我的订单
+			a(href="/order")
+				span.order
+					| 全部订单
+					span.rgt
+	.state
+		.se
+			a(href='/order?orderState1=' + 1)
+				p.one
+					span #{user.content.toBePaid}
+				p 待付款
+		.st
+			a(href='/order?orderState2=' + 2)
+				p.one
+					span #{user.content.toBeShipped}
+				p 待发货
+		.sr
+			a(href='/order?orderState3=' + 3)
+				p.one
+					span #{user.content.Shipped}
+				p 已发货
+	.bar
+		a.coll(href="/user/coll")
+			p
+				img(src="/img/coll.png")
+				span 收藏夹
+				span.gt
+		a.books(href="/user/books")
+			p
+				img(src="/img/books.png")
+				span 我的账本
+				span.gt
+		a.information(href="/user/information")
+			p
+				img(src="/img/information.png")
+				span 账户信息
+				span.gt
+		a.tickling(href="/user/tickling")
+			p
+				img(src="/img/tickling.png")
+				span 意见反馈
+				span.gt
+	.fotbar
+		ul
+			a(href="/")
+				li 
+					p.home
+					span.fh 首页
+			a(href="/cation")
+				li 
+					p.fen
+					span 分类
+			a(href="/user/purchase")
+				li 
+					p.orders
+					span 进货单
+			a(href="/user/myCenter")
+				li 
+					p.my
+					span.mh 我的
+

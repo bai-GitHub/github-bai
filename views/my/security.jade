@@ -1,0 +1,16 @@
+extends ../layout/mycenterLayout
+
+block content
+	.rtitle
+		h1 安全中心
+		a.mt(href="/user/settings")
+			i
+	.bar
+		a(href="/user/auth")
+			p
+				span 修改绑定手机
+				span.gt
+		a(href="/user/newpassword")
+			p
+				span 修改登录密码
+				span.gt

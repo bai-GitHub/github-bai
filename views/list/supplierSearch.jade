@@ -1,0 +1,16 @@
+each i in items.goods
+	li
+		a(href="/good/#{i.gid}/#{smid}/#{i.suid}",data="#{i.suid}")
+			p.banner
+				img(src="#{i.detailed_description}", alt="", width='200', height='200')
+		div
+			a(href="/goods/#{i.gid}/#{smid}")
+					p.txt #{i.name_commodity}
+			p.sec 规格:#{i.packing_specification}
+			.action
+				p.price ￥#{i.goodsSellPrice}
+				p.click
+					span.reduce
+					input(type="text", value='0', readonly, maxlength='#{i.goodsOnStockNum}')
+					span.add
+script(src= '/js/price.js', type= 'text/javascript')
