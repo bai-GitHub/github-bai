@@ -53,3 +53,7 @@ app.use('/', client)
 //加载server主要路由
 var server     = require('./routers/server/serverMain')
 app.use('/server', server)
+
+
+
+//我在此加了注释
